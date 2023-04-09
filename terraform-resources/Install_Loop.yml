@@ -25,6 +25,7 @@
       - php-curl
       - php-cli
       - php-bcmath
+      - python3
   # - name: Install bottle python package
   #   pip:
   #     name: pymysql
