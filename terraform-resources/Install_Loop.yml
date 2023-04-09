@@ -10,6 +10,7 @@
       name: "{{ item }}"
       state: latest
     loop:
+      - python3-dnf
       - httpd
       - php
       - php-mysqlnd
