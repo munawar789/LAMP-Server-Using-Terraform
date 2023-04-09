@@ -110,14 +110,14 @@ resource "null_resource" "run-remoteexec" {
   provisioner "remote-exec" {
     inline = ["echo 'Wait until SSH is ready'"]
   }
-  provisioner "remote-exec" {
-    inline = ["export ANSIBLE_HOST_KEY_CHECKING=False"]
-  }
   depends_on = [module.linux_vm.vm_pip]
 }
 
 
 resource "null_resource" "run-localexec" {
+  provisioner "local-exec" {
+    command = "export ANSIBLE_HOST_KEY_CHECKING=False"
+  }
   provisioner "local-exec" {
     command = "ansible-playbook  -i ${module.linux_vm.vm_instance_pip}, Install_Loop.yml --extra-vars 'ansible_user=${data.azurerm_key_vault_secret.virtual_machine_user.value} ansible_password=${data.azurerm_key_vault_secret.virtual_machine_passwd.value} ansible_sudo_pass=${data.azurerm_key_vault_secret.virtual_machine_passwd.value}'"
   }
