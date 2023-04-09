@@ -23,7 +23,7 @@
       dest: "/var/www/mediawiki"
       state: link
    - name: Apply new SELinux file context to filesystem
-     ansible.builtin.command: restorecon -FR /var/www/mediawiki-1.39.3/
+     ansible.builtin.command: restorecon -FR /var/www/mediawiki-1.39.3
    - name: Apply new SELinux file context to filesystem
      ansible.builtin.command: restorecon -FR /var/www/mediawiki
    - name: replace line
