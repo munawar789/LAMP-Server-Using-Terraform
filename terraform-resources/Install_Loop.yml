@@ -25,6 +25,7 @@
       - php-curl
       - php-cli
       - php-bcmath
+      - firewalld
       - python3
   # - name: Install bottle python package
   #   pip:
@@ -37,14 +38,14 @@
       - apache2
       - mariadb
   - name: Create firewall rule for apache service
-    firewalld:
+    ufw:
       service: http
       zone: public
       permanent: yes
       immediate: yes
       state: enabled
   - name: Create firewall rule for apache service
-    firewalld:
+    ufw:
       service: https
       zone: public
       permanent: yes
