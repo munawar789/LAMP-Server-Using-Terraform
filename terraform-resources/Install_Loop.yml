@@ -25,9 +25,9 @@
       - php-curl
       - php-cli
       - php-bcmath
-  - name: Install bottle python package
-    pip:
-      name: pymysql
+  # - name: Install bottle python package
+  #   pip:
+  #     name: pymysql
   - name: Enable these installed services to start on boot up.
     service:
       name: "{{ item }}"
