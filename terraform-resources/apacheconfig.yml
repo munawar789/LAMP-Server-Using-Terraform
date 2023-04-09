@@ -6,12 +6,10 @@
   gather_facts: no
   tasks:
    - name: Download MediaWiki using get_url
-     become: yes
      get_url:
        url: https://releases.wikimedia.org/mediawiki/1.39/mediawiki-1.39.3.tar.gz
        dest: /tmp/
    - name: Create /mediawiki Directory
-     become: yes
      file:
        path: /var/lib/mediawiki
        state: directory
@@ -26,7 +24,6 @@
       dest: "/var/www/mediawiki"
       state: link
    - name: Update Apache2 Enabled Sites
-     become: yes
      replace:
        path: /etc/apache2/sites-enabled/000-default.conf
        regexp: 'DocumentRoot \/var\/www\/html$'
