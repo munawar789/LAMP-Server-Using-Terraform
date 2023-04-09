@@ -9,32 +9,31 @@
      become: yes
      get_url:
        url: https://releases.wikimedia.org/mediawiki/1.39/mediawiki-1.39.3.tar.gz
-       dest: /var/www
+       dest: /tmp/
+   - name: Create /mediawiki Directory
+     become: yes
+     file:
+       path: /var/lib/mediawiki
+       state: directory
    - name: Unarchive the downloaded MediaWorks file
      unarchive:
-       src: /var/www/mediawiki-1.39.3.tar.gz
-       dest: /var/www/
-       remote_src: yes
-       owner: vvmuser
-       group: vvmuser       
+       src: /tmp/mediawiki-*.tar.gz
+       dest: /var/lib/mediawiki
+       remote_src: yes      
    - name: Create symbolic link as per the guideline
      file:
-      src: "/var/www/mediawiki-1.39.3.tar.gz"
+      src: "/var/lib/mediawiki/mediawiki-1.39.3"
       dest: "/var/www/mediawiki"
       state: link
-   - name: Apply new SELinux file context to filesystem
-     ansible.builtin.command: restorecon -FR /var/www/mediawiki-1.39.3
-   - name: Apply new SELinux file context to filesystem
-     ansible.builtin.command: restorecon -FR /var/www/mediawiki
-   - name: replace line
-     lineinfile: 
-      path: /etc/httpd/conf/httpd.conf 
-      regexp: '^(.*)DocumentRoot "/var/www"$' 
-      line: 'DocumentRoot "/var/www/mediaworks"'
-      backrefs: yes
-   - name: replace line
-     lineinfile: 
-      path: /etc/httpd/conf/httpd.conf 
-      regexp: '^(.*)DirectoryIndex index.html$' 
-      line: 'DirectoryIndex index.html index.html.var index.php'
-      backrefs: yes
+   - name: Update Apache2 Enabled Sites
+     become: yes
+     replace:
+       path: /etc/apache2/sites-enabled/000-default.conf
+       regexp: 'DocumentRoot \/var\/www\/html$'
+       replace: 'DocumentRoot /var/www/html/mediawiki'
+  #  - name: Restart Apache2 Service
+  #    become: yes
+  #    service:
+  #      name: apache2
+  #      state: restarted
+  #      enabled: yes

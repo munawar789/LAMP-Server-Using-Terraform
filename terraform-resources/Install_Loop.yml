@@ -26,10 +26,10 @@
       - php-cli
       - php-bcmath
       - firewalld
-      - python3
-  # - name: Install bottle python package
-  #   pip:
-  #     name: pymysql
+      - python3-pip
+  - name: Install bottle python package
+    pip:
+      name: pymysql
   - name: Enable these installed services to start on boot up.
     service:
       name: "{{ item }}"
@@ -51,7 +51,7 @@
       permanent: yes
       immediate: yes
       state: enabled	  
-  - name: Restart service httpd, in all cases
+  - name: Restart service apache2, in all cases
     service:
       name: apache2
       state: restarted
