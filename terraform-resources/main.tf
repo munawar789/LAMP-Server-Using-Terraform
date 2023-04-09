@@ -112,6 +112,9 @@ resource "null_resource" "run-remoteexec" {
     inline = ["echo 'Wait until SSH is ready'"]
   }
   provisioner "remote-exec" {
+    inline = ["sudo apt update && sudo apt upgrade -y"]
+  }
+  provisioner "remote-exec" {
     inline = ["echo 'nameserver 168.63.129.16' | sudo tee -a /etc/resolv.conf"]
   }
   depends_on = [module.linux_vm.vm_pip]

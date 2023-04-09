@@ -28,9 +28,3 @@
        path: /etc/apache2/sites-enabled/000-default.conf
        regexp: 'DocumentRoot \/var\/www\/html$'
        replace: 'DocumentRoot /var/www/html/mediawiki'
-  #  - name: Restart Apache2 Service
-  #    become: yes
-  #    service:
-  #      name: apache2
-  #      state: restarted
-  #      enabled: yes
