@@ -20,8 +20,8 @@
        remote_src: yes      
    - name: Create symbolic link as per the guideline
      file:
-      src: "/var/lib/mediawiki/mediawiki-1.39.3"
-      dest: "/var/www/mediawiki"
+      src: "/var/lib/mediawiki"
+      dest: "/var/www/html/mediawiki"
       state: link
    - name: Update Apache2 Enabled Sites
      replace:
