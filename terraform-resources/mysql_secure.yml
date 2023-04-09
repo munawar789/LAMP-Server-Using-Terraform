@@ -25,4 +25,4 @@
        name: wiki
        password: '{{ wiki_pass }}'
        priv:
-          'wikidatabase.*:ALL, GRANT'
+          'wikidatabase.*': 'ALL,GRANT'
