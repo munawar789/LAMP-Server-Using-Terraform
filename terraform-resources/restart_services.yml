@@ -10,5 +10,5 @@
       name: "{{ item }}"
       state: restarted
     loop:
-      - httpd
+      - apache2
       - mariadb
