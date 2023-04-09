@@ -5,9 +5,9 @@ devKV_Name = "mediawiki-kv" #### We have to change as per env
 rg_Name            = "mediawiki_rg" ## We have to change as per env
 location           = "eastus"
 vnet_Name          = "vnet-terraform-modulesdev-eus"
-vnet_Address       = "178.29.192.0/20"
-subnet_NameList    = ["snet-aks-terraform-modulesdev-eus", "snet-agw-terraform-modulesdev-eus", "snet-shared-terraform-modulesdev-eus", "snet-vm-terraform-modulesdev-eus", "GatewaySubnet"]
-subnet_AddressList = ["178.29.192.0/26", "178.29.192.64/26", "178.29.192.128/26", "178.29.192.192/26", "178.29.193.0/26"]
+vnet_Address       = "192.168.0.0/20"
+subnet_NameList    = ["snet-vm-terraform-modulesdev-eus", "snet-shared-terraform-modulesdev-eus"]
+subnet_AddressList = ["192.168.0.0/26", "192.168.0.64/26"]
 wiki_pass          = "wiki-pass"
 mysql_root_pass    = "mysql-root-pass"
 

@@ -26,10 +26,10 @@ provider "azurerm" {
   features {}
 }
 
-provider "azurerm" {
-  features {}
-  skip_provider_registration = "true"
-}
+# provider "azurerm" {
+#   features {}
+#   skip_provider_registration = "true"
+# }
 
 ### Data source for KV - to retrive the secrets from KV, declaring the existing KV details.
 data "azurerm_key_vault" "kv_name" {
@@ -95,7 +95,7 @@ module "linux_vm" {
   vm_image_version     = var.vm_image_version
   vm_os_disk_strg_type = var.vm_os_disk_strg_type
   vm_os_disk_caching   = var.vm_os_disk_caching
-  vm_subnetid          = module.vnet01.subnet_Id[3]
+  vm_subnetid          = module.vnet01.subnet_Id[0]
 
 }
 
