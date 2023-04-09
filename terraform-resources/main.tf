@@ -19,17 +19,17 @@ terraform {
   }
   #required_version = ">= 0.13"
 }
-provider "azurerm" {
-  alias                      = "thoughtworks-assignment"
-  subscription_id            = var.subscription_id
-  skip_provider_registration = "true"
-  features {}
-}
-
 # provider "azurerm" {
-#   features {}
+#   alias                      = "thoughtworks-assignment"
+#   subscription_id            = var.subscription_id
 #   skip_provider_registration = "true"
+#   features {}
 # }
+
+provider "azurerm" {
+  features {}
+  skip_provider_registration = "true"
+}
 
 ### Data source for KV - to retrive the secrets from KV, declaring the existing KV details.
 data "azurerm_key_vault" "kv_name" {
