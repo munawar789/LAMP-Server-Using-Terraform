@@ -6,11 +6,11 @@
   gather_facts: no
   tasks:
   - name: Install latest version of below packages.
-    dnf:
+    apt-get:
       name: "{{ item }}"
       state: latest
     loop:
-      - python3-dnf
+      - python3*
       - httpd
       - php
       - php-mysqlnd
