@@ -8,15 +8,15 @@
    - name: Download MediaWiki using get_url
      get_url:
        url: https://releases.wikimedia.org/mediawiki/1.39/mediawiki-1.39.3.tar.gz
-       dest: /tmp/
+       dest: "/tmp"
    - name: Create /mediawiki Directory
      file:
        path: /var/lib/mediawiki
        state: directory
    - name: Unarchive the downloaded MediaWorks file
      unarchive:
-       src: /tmp/mediawiki-*.tar.gz
-       dest: /var/lib/mediawiki
+       src: "/tmp/mediawiki-1.39.3.tar.gz"
+       dest: "/var/lib/mediawiki"
        remote_src: yes      
    - name: Create symbolic link as per the guideline
      file:
