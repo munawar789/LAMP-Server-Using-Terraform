@@ -6,7 +6,7 @@
   gather_facts: no
   tasks:
   - name: Install latest version of below packages.
-    apt-get:
+    apt:
       name: "{{ item }}"
       state: latest
     loop:
