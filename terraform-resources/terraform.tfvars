@@ -1,4 +1,4 @@
-subscription_id = "28cfc8db-2888-49e8-9e6b-80beb9fd74fe"
+subscription_id = "28cfc8db-2888-49e8-9e6b-8xxxxxxx4fe"
 ## Pre Defined KV for storing secret
 devKV_Name = "mediawiki-kv" #### change this
 ## VNET - SUBNET

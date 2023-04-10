@@ -1,7 +1,7 @@
 # backend storageaccount declaration to store the terraform state file. This should exist already.
 terraform {
   backend "azurerm" {
-    subscription_id      = "28cfc8db-2888-49e8-9e6b-80beb9fd74fe"
+    subscription_id      = "28cfc8db-2888-49e8-9e6b-8xxxxxxxxx74fe"
     resource_group_name  = "mediawiki_rg"
     storage_account_name = "mediawikistg" # Storage account used for backend
     container_name       = "terraformstate"
