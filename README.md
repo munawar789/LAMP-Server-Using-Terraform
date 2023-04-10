@@ -95,7 +95,7 @@ Run 'az login' to login Azure Subscription where these resources need to be depl
 
 Run below command in your machine 
 
-export ANSIBLE_HOST_KEY_CHECKING=False
+export ANSIBLE_HOST_KEY_CHECKING=False   (mandatory)
 
 Otherwise you will see an error during the ansible task "Using a SSH password instead of a key is not possible because Host Key checking is enabled"
 
@@ -103,13 +103,13 @@ Perform git clone of the repo
 
 Navigate to terraform-resources folder, use :
 
-  cd terraform-resources
+  1) cd terraform-resources
   
-  terraform init
+  2) terraform init
   
-  terraform plan
+  3) terraform plan
   
-  terraform apply
+  4) terraform apply
 
 Explanation :
 
