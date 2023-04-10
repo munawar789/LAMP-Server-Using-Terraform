@@ -46,11 +46,20 @@ Prerequisites :
 
 We are using Azure BLOB as backend configuration, so you need to ensure the storage account and container mentioned in the backend configuration exists. 
 
+![image](https://user-images.githubusercontent.com/86006803/230807525-e4b981dd-c612-4797-8615-e2111a990289.png)
+
+
 This is updated under backend section of main.tf file located in terraform-resources directory.
+
+![image](https://user-images.githubusercontent.com/86006803/230807242-0b83db98-7cbd-4e6d-90d1-e43c4e647e2e.png)
+
 
 To ensure this configuration is secure. We are using Key Vault to store all our sensitive information. 
 
 Since we are using data block to fetch key vault secrets, The key vault and the secrets should already exist.
+
+![image](https://user-images.githubusercontent.com/86006803/230807434-81a823f0-7c01-48e9-9b01-02d0a5086dbe.png)
+
 
 wiki_pass refers to the secret storing the password for the wiki MySQL user created as part of this process.
 
@@ -66,6 +75,10 @@ We are using Terraform modules and variables to ensure this code is scalable.
 
 Before you start the deployment you need to update the required values in "terraform.tfvars" file under terraform-resources folder. 
 
+![image](https://user-images.githubusercontent.com/86006803/230807292-b6b12236-90a7-47a0-9cca-5d0bbb73f0b9.png)
+
+
+
 I have used conditionals in the terraform variables file to ensure we are performing error handling. 
 
 You can edit or modify these conditionals if you have any specific custom requirements.
@@ -80,9 +93,9 @@ First you need to install Terraform, Ansible and Az cli on your machine. You can
 
 Run 'az login' to login Azure Subscription where these resources need to be deployed.
 
-Run below command in your machine 
+Run below command in your machine (mandatory)
 
-export ANSIBLE_HOST_KEY_CHECKING=False
+export ANSIBLE_HOST_KEY_CHECKING=False                       
 
 Otherwise you will see an error during the ansible task "Using a SSH password instead of a key is not possible because Host Key checking is enabled"
 
@@ -90,13 +103,13 @@ Perform git clone of the repo
 
 Navigate to terraform-resources folder, use :
 
-  cd terraform-resources
+  1) cd terraform-resources
   
-  terraform init
+  2) terraform init
   
-  terraform plan
+  3) terraform plan
   
-  terraform apply
+  4) terraform apply
 
 Explanation :
 
@@ -107,3 +120,9 @@ Terraform plan -> This helps you verify the code is going to deploy the resource
 This isn't mandatory, but a recommended step.
 
 Terraform apply -> This step creates/destroys the resources specified in this code. We can skip manual approval by using --auto-approve parameter.
+
+Output :
+
+Navigate your browser to http://server_ip_address/mediawiki-1.39.3/index.php
+
+![image](https://user-images.githubusercontent.com/86006803/230806777-10b4fcca-1084-44b5-9901-02704702ba0e.png)
