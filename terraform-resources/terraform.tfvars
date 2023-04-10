@@ -1,8 +1,8 @@
 subscription_id = "28cfc8db-2888-49e8-9e6b-80beb9fd74fe"
 ## Pre Defined KV for storing secret
-devKV_Name = "mediawiki-kv" #### We have to change as per env
+devKV_Name = "mediawiki-kv" #### change this
 ## VNET - SUBNET
-rg_Name            = "mediawiki_rg" ## We have to change as per env
+rg_Name            = "mediawiki_rg" ## change this
 location           = "eastus"
 vnet_Name          = "vnet-terraform-modulesdev-eus"
 vnet_Address       = "192.168.0.0/20"

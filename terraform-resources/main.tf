@@ -1,7 +1,6 @@
 # backend storageaccount declaration to store the terraform state file. This should exist already.
 terraform {
   backend "azurerm" {
-    #   subscription_id       = "da74xxxx-9c9a-xxxx-8fae-xxxxxxxxxxxx"
     subscription_id      = "28cfc8db-2888-49e8-9e6b-80beb9fd74fe"
     resource_group_name  = "mediawiki_rg"
     storage_account_name = "mediawikistg" # Storage account used for backend
@@ -19,12 +18,6 @@ terraform {
   }
   #required_version = ">= 0.13"
 }
-# provider "azurerm" {
-#   alias                      = "thoughtworks-assignment"
-#   subscription_id            = var.subscription_id
-#   skip_provider_registration = "true"
-#   features {}
-# }
 
 provider "azurerm" {
   subscription_id            = var.subscription_id
@@ -122,9 +115,6 @@ resource "null_resource" "run-remoteexec" {
 
 
 resource "null_resource" "run-localexec" {
-  provisioner "local-exec" {
-    command = "export ANSIBLE_HOST_KEY_CHECKING=False"
-  }
   provisioner "local-exec" {
     command = "ansible-playbook  -i ${module.linux_vm.vm_instance_pip}, Install_Loop.yml --extra-vars 'ansible_user=${data.azurerm_key_vault_secret.virtual_machine_user.value} ansible_password=${data.azurerm_key_vault_secret.virtual_machine_passwd.value} ansible_sudo_pass=${data.azurerm_key_vault_secret.virtual_machine_passwd.value}'"
   }
