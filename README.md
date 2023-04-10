@@ -93,9 +93,9 @@ First you need to install Terraform, Ansible and Az cli on your machine. You can
 
 Run 'az login' to login Azure Subscription where these resources need to be deployed.
 
-Run below command in your machine 
+Run below command in your machine (mandatory)
 
-export ANSIBLE_HOST_KEY_CHECKING=False                         (mandatory)
+export ANSIBLE_HOST_KEY_CHECKING=False                       
 
 Otherwise you will see an error during the ansible task "Using a SSH password instead of a key is not possible because Host Key checking is enabled"
 
