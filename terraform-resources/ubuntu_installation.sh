@@ -10,5 +10,5 @@ sudo apt install software-properties-common
 sudo add-apt-repository --yes --update ppa:ansible/ansible
 sudo apt install -y ansible
 
-#Azure CLI installation
+##Azure CLI installation
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
